@@ -20,7 +20,6 @@ class DataIngestion:
         except Exception as e:
             raise AppException(e, sys) from e
 
-    
     def download_data(self):
         """
         Fetch the data from the url
@@ -38,7 +37,6 @@ class DataIngestion:
         except Exception as e:
             raise AppException(e, sys) from e
 
-
     def extract_zip_file(self,zip_file_path: str):
         """
         zip_file_path: str
@@ -54,7 +52,6 @@ class DataIngestion:
         except Exception as e:
             raise AppException(e,sys) from e
 
-    
     def initiate_data_ingestion(self):
         try:
             zip_file_path = self.download_data()
