@@ -3,7 +3,7 @@ from pathlib import Path
 import logging
 
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
-project_name = "Collaborative-Filtering-Based-Recommender-System"
+project_name = "Collaborative_Filtering_Based_Recommender_System"
 
 list_of_files = [
     f"{project_name}/__init__.py",
