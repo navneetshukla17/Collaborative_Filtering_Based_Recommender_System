@@ -1,6 +1,7 @@
 import os
 import sys
-from six.moves import urllib
+import six
+import urllib
 import zipfile
 from Collaborative_Filtering_Based_Recommender_System.logger.log import logging
 from Collaborative_Filtering_Based_Recommender_System.exception.exception_handler import AppException
