@@ -199,7 +199,7 @@ if __name__ == "__main__":
         with col1:
             st.markdown("<div style='display: flex; justify-content: flex-end;'>", unsafe_allow_html=True)
             if st.session_state.page > 0:
-                if st.button("⬅️ Previous"):
+                if st.button("⇤ Previous"):
                     st.session_state.page -= 1
                     st.rerun()
             st.markdown("</div>", unsafe_allow_html=True)
@@ -211,7 +211,7 @@ if __name__ == "__main__":
 
         with col3:
             if st.session_state.page < total_pages - 1:
-                if st.button("➡️ Next"):
+                if st.button("Next ⇥"):
                     st.session_state.page += 1
                     st.rerun()
 
