@@ -13,8 +13,7 @@ class AppConfiguration:
             self.configs_info = read_yaml_file(file_path=config_file_path)
         except Exception as e:
             raise AppException(e, sys) from e
-
-    
+        
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         try:
             data_ingestion_config = self.configs_info['data_ingestion_config']
@@ -34,8 +33,6 @@ class AppConfiguration:
         except Exception as e:
             raise AppException(e, sys) from e
 
-
-    
     def get_data_validation_config(self) -> DataValidationConfig:
         try:
             data_validation_config = self.configs_info['data_validation_config']
@@ -56,14 +53,11 @@ class AppConfiguration:
                 ratings_csv_file = ratings_csv_file_dir,
                 serialized_objects_dir = serialized_objects_dir
             )
-
             logging.info(f"Data Validation Config: {response}")
             return response
         except Exception as e:
             raise AppException(e, sys) from e
-
-
-    
+        
     def get_data_transformation_config(self) -> DataTransformationConfig:
         try:
             data_transformation_config = self.configs_info['data_transformation_config']
@@ -83,8 +77,6 @@ class AppConfiguration:
             return response
         except Exception as e:
             raise AppException(e, sys) from e
-
-    
 
     def get_model_trainer_config(self) -> ModelTrainerConfig:
         try:
@@ -108,8 +100,6 @@ class AppConfiguration:
             return response
         except Exception as e:
             raise AppException(e, sys) from e
-
-    
 
     def get_recommendation_config(self) -> ModelRecommendationConfig:
         try:
