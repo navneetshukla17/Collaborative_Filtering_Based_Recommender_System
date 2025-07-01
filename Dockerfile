@@ -20,7 +20,7 @@
 # Use Python 3.10 to satisfy altair version requirement
 FROM python:3.10-slim
 
-EXPOSE 8501
+EXPOSE 8080
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
