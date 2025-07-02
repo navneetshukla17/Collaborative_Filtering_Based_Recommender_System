@@ -1,3 +1,6 @@
+
+
+
 name: GCP Auto Deployment
 
 on:
@@ -39,3 +42,4 @@ jobs:
 
     - name: Clean up
       run: echo "Deployment finished!"
+
