@@ -1,0 +1,41 @@
+name: GCP Auto Deployment
+
+on:
+  push:
+    branches:
+      - main  # Trigger workflow on push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@v1
+      with:
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+        project_id: united-yeti-464514-m0
+        export_default_credentials: true
+
+    - name: Configure Docker to use gcloud as a credential helper
+      run: gcloud auth configure-docker
+
+    - name: Build Docker image
+      run: docker build -t gcr.io/united-yeti-464514-m0/collaborative-filtering-app .
+
+    - name: Push Docker image to Google Container Registry
+      run: docker push gcr.io/united-yeti-464514-m0/collaborative-filtering-app
+
+    - name: Deploy to Cloud Run
+      run: |
+        gcloud run deploy collaborative-filtering-app \
+          --image gcr.io/united-yeti-464514-m0/collaborative-filtering-app \
+          --region us-central1 \
+          --platform managed \
+          --allow-unauthenticated
+
+    - name: Clean up
+      run: echo "Deployment finished!"
