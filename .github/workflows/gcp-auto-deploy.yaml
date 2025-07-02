@@ -1,12 +1,9 @@
-
-
-
 name: GCP Auto Deployment
 
 on:
   push:
     branches:
-      - main  # Trigger workflow on push to the main branch
+      - main 
 
 jobs:
   deploy:
@@ -43,3 +40,5 @@ jobs:
     - name: Clean up
       run: echo "Deployment finished!"
 
+# -----Unfortunately, I had to stop the automated deployment process here due to the Exceeding of Free Tier Limits.
+# -----I will continue to work on the deployment process manually and will update the workflow as needed
